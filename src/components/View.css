@@ -1,0 +1,9 @@
+.input-area{
+    min-height: 200px;
+    background-color: silver;
+}
+
+.output-area{
+    min-height: 200px;
+    background-color: greenyellow;
+}

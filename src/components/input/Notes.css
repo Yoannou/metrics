@@ -1,0 +1,6 @@
+.notes{
+    position: relative;
+    /* transform: translateY(-90%); */
+    background-color: beige;
+    min-height: 20px;
+}
