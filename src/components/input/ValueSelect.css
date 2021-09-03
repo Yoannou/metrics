@@ -9,8 +9,15 @@
 }
 
 .value-label input {
-  width: 300px;
+  width: 7ch;
   padding: 10px;
-  font-size: 80px;
+  font-size: 50px;
   text-align: right;
+  font-family: normalidad-text, sans-serif;
+}
+
+@media only screen and (min-width: 800px) {
+  .value-label input {
+    font-size: 80px;
+  }  
 }

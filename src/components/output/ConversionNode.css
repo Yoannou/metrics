@@ -1,0 +1,26 @@
+.conversion-node {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    align-items: center;
+    width: 350px;
+    height: 350px;
+    background-color: #7a7a8f;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.node-text {
+    color: white;
+    padding: 5px;
+}
+
+.node-text h2 {
+    font-size: 40px;
+    font-weight: 200;
+    padding: 2px;
+}
+
+.node-metric {
+    border-bottom: 2px solid white;
+}

@@ -2,11 +2,11 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 40vh;
+    height: 300px;
     min-height: 280px;
     background-color: #dadadf;
 }
 
 .form {
-  height: 100%;
+  height: 100%; 
 }

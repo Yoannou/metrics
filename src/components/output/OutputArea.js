@@ -1,11 +1,11 @@
 import ConversionList from './ConversionList'
 import './OutputArea.css'
 
-function OutputArea() {
+function OutputArea({currentMetric, conversions}) {
   return (
     <div className="output-area">
-        <ConversionList densityRequired="false" />
-        <ConversionList densityRequired="true" />
+        <ConversionList id="results-main" currentMetric={currentMetric} nodes={conversions} densityRequired="false" />
+        {/* <ConversionList id="results-secondary" densityRequired="true" /> */}
     </div>
   );
 }

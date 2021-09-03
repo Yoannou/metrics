@@ -2,11 +2,11 @@ import ValueSelect from './ValueSelect'
 import MetricSelect from './MetricSelect'
 import './InputArea.css'
 
-function InputArea() {
+function InputArea({value, valueChange, metric, metricChange}) {
   return (
     <div className="input-area">
-        <ValueSelect />
-        <MetricSelect />
+        <ValueSelect value={value.number} onChange={valueChange}/>
+        <MetricSelect metric={metric} onChange={metricChange} />
     </div>
   );
 }

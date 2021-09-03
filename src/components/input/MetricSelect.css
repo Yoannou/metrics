@@ -8,9 +8,20 @@
   bottom: 30px;
 }
 
-.metric-label select {
-  width: 200px;
+.metric-label select, metric-label select option {
+  width: 3ch;
   padding: 10px;
-  font-size: 80px;
+  font-size: 50px;
   text-align: center;
+  font-family: broadacre-regular-0, normalidad-text, sans-serif;
+}
+
+.drop-down-option {
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 800px) {
+  .metric-label select {
+    font-size: 80px;
+  }  
 }
