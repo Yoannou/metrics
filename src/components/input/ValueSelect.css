@@ -1,4 +1,16 @@
 .value-select {
-    left: 0px;
-    background: green;
+  position: relative;
+}
+
+.value-label {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+}
+
+.value-label input {
+  width: 300px;
+  padding: 10px;
+  font-size: 80px;
+  text-align: right;
 }

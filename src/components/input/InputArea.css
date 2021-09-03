@@ -1,6 +1,12 @@
-.select {
-    position: absolute;
-    bottom: 50px;
-    height: 10px;
-    width: 50%;
+.input-area{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 40vh;
+    min-height: 280px;
+    background-color: #dadadf;
+}
+
+.form {
+  height: 100%;
 }

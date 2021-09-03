@@ -1,4 +1,16 @@
 .metric-select {
-    right: 0px;
-    background: red;
+  position: relative;
+}
+
+.metric-label {
+  position: absolute;
+  left: 10px;
+  bottom: 30px;
+}
+
+.metric-label select {
+  width: 200px;
+  padding: 10px;
+  font-size: 80px;
+  text-align: center;
 }
