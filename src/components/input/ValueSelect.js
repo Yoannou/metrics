@@ -5,7 +5,7 @@ function ValueSelect({value, onChange}) {
     <div className="select value-select">
       <form className="form value-form">
         <label className="value-label">
-          <input type="text" name="value"
+          <input type="text" pattern="[0-9]*" name="value"
             value={value} onChange={onChange}
             /*style={{width: value.length + "ch"}}*//>
         </label>

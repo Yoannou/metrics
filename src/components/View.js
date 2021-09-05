@@ -6,7 +6,18 @@ import './View.css'
 
 function View() {
 
-  let newValue = 0;
+  console.log(" ----- ")
+
+  // Declaring these here causes issues because they get re-assigned to defaults on re-render
+  // But just using the state versions (value and metric) causes issue because they are behind the render
+  // I end up using these and state versions together, should be better way.
+  // I update these values with every setState, based on what they already are if I have to,
+  // so that they don't go back to this.
+
+  // CONSIDER useRef() for these
+  let newValue = 100;
+  let newMetric = 'g';
+
   const [value, setValue] = useState({
     number: 100,
     length: 3
@@ -19,13 +30,15 @@ function View() {
         number: newValue, 
         length: newLength});
     }
+    newMetric = metric;
     update('valueChange');
-    console.log("KEYSTROKE HANDLED.")
   }
 
   const [metric, setMetric] = useState('g');
   const handleMetricChange = (event) => {
-    setMetric(event.target.value);
+    newValue = value.number;
+    newMetric = event.target.value;
+    setMetric(newMetric);
     update('metricChange');
   }
 
@@ -39,10 +52,10 @@ function View() {
       formulas: {
         g(n){return n},
         ml(n){return n},
-        L(n){return n*0.1}, 
-        kg(n){return n*0.1}, 
-        lbs(n){return (n*0.0022046)}, 
-        oz(n){return (n*0.035274)} 
+        L(n){return n*1000}, 
+        kg(n){return n*1000}, 
+        lbs(n){return (n*453.592)}, 
+        oz(n){return (n*28.35)} 
       }
     },
     {
@@ -52,10 +65,10 @@ function View() {
       formulas: {
         g(n){return n},
         ml(n){return n},
-        L(n){return n*0.1}, 
-        kg(n){return n*0.1}, 
-        lbs(n){return (n*0.0022046)}, 
-        oz(n){return (n*0.035274)} 
+        L(n){return n*1000}, 
+        kg(n){return n*1000}, 
+        lbs(n){return (n*453.592)}, 
+        oz(n){return (n*28.35)} 
       }
     },
     {
@@ -122,40 +135,24 @@ function View() {
   
   // Make this async, must run before re-render
   const update = (change) => {
-    console.log("UPDATING");
     if (change == 'metricChange') {
-      console.log("Value: " + value.number);
-      console.log("Metric: " + metric);
-      // Update input value.number here
+
     }
-    /* NOT WORKING - does not update value
-    setConversions( prevConversions => ( //
+    console.log("setValue: " + value.number);
+    console.log("setMetric: " + metric);
+    setConversions( prevConversions => (
       conversions.map(obj => {
         const temp = Object.assign({}, obj);
-        const formula = temp.formulas[metric];
-        temp.value = formula(value.number);
-        if (countDecimals(temp.value) > 2) {
-          temp.value = temp.value.toFixed(2);
-        }
-        console.log("NODE UPDATED WITH: " + temp.value);
-        return temp;
-      })
-    ));
-    */
-    setConversions( prevConversions => ( //
-      conversions.map(obj => {
-        const temp = Object.assign({}, obj);
-        const formula = temp.formulas[metric];
+        const formula = temp.formulas[newMetric];
         temp.value = formula(newValue);
-        console.log(temp.metric)
         if (countDecimals(temp.value) > 2) {
           temp.value = temp.value.toFixed(2);
         }
-        console.log("NODE UPDATED WITH: " + temp.value);
         return temp;
       })
     ));
-    console.log(conversions)
+    console.log("newValue: " + newValue);
+    console.log("newMetric: " + newMetric);
     return 'success';
   }
 

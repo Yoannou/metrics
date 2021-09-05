@@ -14,7 +14,7 @@ function commafy( num ) {
 function ConversionNode({node}) {
   return (
     <div style={{backgroundColor: node.color}} className="conversion-node">
-      <div className="node-text node-value"><h2>{(node.value < 100000000) ? commafy(node.value) : "Too large"} </h2></div>
+      <div className="node-text node-value"><h2>{(node.value < 100000000) ? commafy(node.value) : ">100,000,000"} </h2></div>
       <div className="node-text node-metric"><h2>{node.metric}</h2></div>
     </div>
   );

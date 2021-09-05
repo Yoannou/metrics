@@ -10,8 +10,8 @@ function MetricSelect({metric, onChange}) {
             <option className="drop-down-option" value="ml">ml</option>
             <option className="drop-down-option" value="L">L</option>
             <option className="drop-down-option" value="kg">kg</option>
-            <option className="drop-down-option" value="oz">oz</option>
             <option className="drop-down-option" value="lbs">lbs</option>
+            <option className="drop-down-option" value="oz">oz</option>
           </select>
         </label>
       </form>
