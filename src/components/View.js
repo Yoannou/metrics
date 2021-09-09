@@ -14,7 +14,8 @@ function View() {
   // I update these values with every setState, based on what they already are if I have to,
   // so that they don't go back to this.
 
-  // CONSIDER useRef() for these
+  // CONSIDER useRef() for these. Similar to state but doesn't cause a re-render,
+  // and it won't change every time this file is run.
   let newValue = 100;
   let newMetric = 'g';
 
