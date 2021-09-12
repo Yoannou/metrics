@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Notes from './Notes'
 import InputArea from './input/InputArea'
 import OutputArea from './output/OutputArea'
@@ -16,35 +16,28 @@ function View() {
 
   // CONSIDER useRef() for these. Similar to state but doesn't cause a re-render,
   // and it won't change every time this file is run.
-  let newValue = 100;
-  let newMetric = 'g';
+
+  // No, useEffect is the way to do it.
+  // let newValue = 100;
+  // let newMetric = 'g';
 
   const [value, setValue] = useState({
     number: 100,
     length: 3
   });
   const handleValueChange = (event) => {
-    newValue = event.target.value;
-    const newLength = event.target.textLength;
-    if (newLength < 8 && !isNaN(newValue)) {
+    if (!isNaN(event.target.value)) {
       setValue({
-        number: newValue, 
-        length: newLength});
+        number: event.target.value,
+        length: event.target.textLength});
     }
-    newMetric = metric;
-    update('valueChange');
   }
 
   const [metric, setMetric] = useState('g');
   const handleMetricChange = (event) => {
-    newValue = value.number;
-    newMetric = event.target.value;
-    setMetric(newMetric);
-    update('metricChange');
+    setMetric(event.target.value);
   }
 
-  // We need to pass this down. React won't know to update
-  // the nodes since they aren't passed this data
   const [conversions, setConversions] = useState([
     {
       metric: 'g',
@@ -53,10 +46,10 @@ function View() {
       formulas: {
         g(n){return n},
         ml(n){return n},
-        L(n){return n*1000}, 
-        kg(n){return n*1000}, 
-        lbs(n){return (n*453.592)}, 
-        oz(n){return (n*28.35)} 
+        L(n){return n*1000},
+        kg(n){return n*1000},
+        lbs(n){return (n*453.592)},
+        oz(n){return (n*28.35)}
       }
     },
     {
@@ -66,10 +59,10 @@ function View() {
       formulas: {
         g(n){return n},
         ml(n){return n},
-        L(n){return n*1000}, 
-        kg(n){return n*1000}, 
-        lbs(n){return (n*453.592)}, 
-        oz(n){return (n*28.35)} 
+        L(n){return n*1000},
+        kg(n){return n*1000},
+        lbs(n){return (n*453.592)},
+        oz(n){return (n*28.35)}
       }
     },
     {
@@ -79,10 +72,10 @@ function View() {
       formulas: {
         g(n){return n/1000},
         ml(n){return n/1000},
-        L(n){return n}, 
-        kg(n){return n}, 
-        lbs(n){return (n/2.205)}, 
-        oz(n){return (n/35.274)} 
+        L(n){return n},
+        kg(n){return n},
+        lbs(n){return (n/2.205)},
+        oz(n){return (n/35.274)}
       }
     },
     {
@@ -92,10 +85,10 @@ function View() {
       formulas: {
         g(n){return n/1000},
         ml(n){return n/1000},
-        L(n){return n}, 
-        kg(n){return n}, 
-        lbs(n){return (n/2.205)}, 
-        oz(n){return (n/35.274)} 
+        L(n){return n},
+        kg(n){return n},
+        lbs(n){return (n/2.205)},
+        oz(n){return (n/35.274)}
       }
     },
     {
@@ -105,10 +98,10 @@ function View() {
       formulas: {
         g(n){return n/453.592},
         ml(n){return n/453.592},
-        L(n){return n*2.205}, 
-        kg(n){return n*2.205}, 
-        lbs(n){return n}, 
-        oz(n){return (n/16)} 
+        L(n){return n*2.205},
+        kg(n){return n*2.205},
+        lbs(n){return n},
+        oz(n){return (n/16)}
       }
     },
     {
@@ -118,14 +111,15 @@ function View() {
       formulas: {
         g(n){return n/28.3495},
         ml(n){return n/28.3495},
-        L(n){return n*35.274}, 
-        kg(n){return n*35.274}, 
-        lbs(n){return (n*16)}, 
-        oz(n){return n} 
+        L(n){return n*35.274},
+        kg(n){return n*35.274},
+        lbs(n){return (n*16)},
+        oz(n){return n}
       }
     }
   ]);
 
+  // Should change this so that grams and millileters don't use decimals:
   const countDecimals = num => {
     const numStr = String(num);
     if (numStr.includes('.')) {
@@ -133,29 +127,34 @@ function View() {
     };
     return 0;
  }
-  
-  // Make this async, must run before re-render
-  const update = (change) => {
-    if (change == 'metricChange') {
 
-    }
+  // This update to the DOM runs as a side-effect whenever user input changes
+  // the state of the value or metric.
+  const update = (change) => {
     console.log("setValue: " + value.number);
     console.log("setMetric: " + metric);
     setConversions( prevConversions => (
       conversions.map(obj => {
         const temp = Object.assign({}, obj);
-        const formula = temp.formulas[newMetric];
-        temp.value = formula(newValue);
+        const formula = temp.formulas[metric];
+        temp.value = formula(value.number);
         if (countDecimals(temp.value) > 2) {
           temp.value = temp.value.toFixed(2);
         }
         return temp;
       })
     ));
-    console.log("newValue: " + newValue);
-    console.log("newMetric: " + newMetric);
+    //.then handleValueChange ??
+    //.then handleMetricChange ??
+    console.log("newValue: " + value.number);
+    console.log("newMetric: " + metric);
     return 'success';
   }
+
+  useEffect(update, [value, metric]);
+
+
+
 
   return (
     <div className="container">
