@@ -1,6 +1,6 @@
 .output-area{
     position: relative;
-    height: 60vh;
     min-height: 200px;
     background-color: #fff;
+    background-image: url("../../img/shutterstock_granite.jpg");
 }

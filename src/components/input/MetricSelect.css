@@ -1,11 +1,11 @@
 .metric-select {
   position: relative;
+  grid-area: metric;
 }
 
 .metric-label {
-  position: absolute;
-  left: 10px;
-  bottom: 30px;
+  position: relative;
+  top: 12px;
 }
 
 .metric-label select, metric-label select option {
@@ -20,7 +20,15 @@
   font-size: 30px;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 769px) {
+
+  .metric-label {
+    position: absolute;
+    left: 10px;
+    bottom: 30px;
+    top: auto;
+  }
+
   .metric-label select {
     font-size: 80px;
   }  

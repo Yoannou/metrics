@@ -6,8 +6,6 @@ import './View.css'
 
 function View() {
 
-  console.log(" ----- ")
-
   // Declaring these here causes issues because they get re-assigned to defaults on re-render
   // But just using the state versions (value and metric) causes issue because they are behind the render
   // I end up using these and state versions together, should be better way.
@@ -20,6 +18,16 @@ function View() {
   // No, useEffect is the way to do it.
   // let newValue = 100;
   // let newMetric = 'g';
+
+  const [notepad, setNotepad] = useState('closed');
+  const handleNotepadChange = (event) => {
+    if (notepad === 'open') {
+      setNotepad('closed');
+    }
+    else {
+      setNotepad('open');
+    }
+  }
 
   const [value, setValue] = useState({
     number: 100,
@@ -55,7 +63,7 @@ function View() {
     {
       metric: 'ml',
       value: 100,
-      color: '#7aefed',
+      color: '#7a9fed',
       formulas: {
         g(n){return n},
         ml(n){return n},
@@ -68,7 +76,7 @@ function View() {
     {
       metric: 'L',
       value: 0.1,
-      color: "#88ddbb",
+      color: "#65cc55",
       formulas: {
         g(n){return n/1000},
         ml(n){return n/1000},
@@ -131,34 +139,29 @@ function View() {
   // This update to the DOM runs as a side-effect whenever user input changes
   // the state of the value or metric.
   const update = (change) => {
-    console.log("setValue: " + value.number);
-    console.log("setMetric: " + metric);
     setConversions( prevConversions => (
       conversions.map(obj => {
         const temp = Object.assign({}, obj);
         const formula = temp.formulas[metric];
         temp.value = formula(value.number);
-        if (countDecimals(temp.value) > 2) {
+        if (countDecimals(temp.value) > 2 && typeof temp.value == "number") {
+          console.log(typeof temp.value);
           temp.value = temp.value.toFixed(2);
+          console.log(temp.value)
         }
         return temp;
       })
     ));
-    //.then handleValueChange ??
-    //.then handleMetricChange ??
-    console.log("newValue: " + value.number);
-    console.log("newMetric: " + metric);
     return 'success';
   }
 
   useEffect(update, [value, metric]);
 
 
-
-
   return (
     <div className="container">
-        <Notes />
+        <Notes openStatus={notepad} notepadChange={handleNotepadChange}/>
+        <div className="top-buffer"></div>
         <InputArea value={value} valueChange={handleValueChange}
           metric={metric} metricChange={handleMetricChange}/>
         <OutputArea currentMetric={metric} conversions={conversions}/>

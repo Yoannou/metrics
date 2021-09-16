@@ -1,12 +1,31 @@
 .input-area{
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 300px;
-    min-height: 280px;
-    background-color: #dadadf;
+    grid-template-areas:
+    "select"
+    "metric";
+    height: 220px;
+    min-height: 200;
+    background-color: #000012;
 }
 
 .form {
   height: 100%; 
+  text-align: center;
+}
+
+@media only screen and (min-width: 769px) {
+
+  .input-area {
+    grid-template-areas: 
+    "select select metric"
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+
+  .input-area {
+    grid-template-areas: 
+    "select metric"
+  }
 }
