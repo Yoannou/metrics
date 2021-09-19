@@ -145,9 +145,7 @@ function View() {
         const formula = temp.formulas[metric];
         temp.value = formula(value.number);
         if (countDecimals(temp.value) > 2 && typeof temp.value == "number") {
-          console.log(typeof temp.value);
           temp.value = temp.value.toFixed(2);
-          console.log(temp.value)
         }
         return temp;
       })

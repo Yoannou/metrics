@@ -2,5 +2,11 @@
     position: relative;
     min-height: 200px;
     background-color: #fff;
-    background-image: url("../../img/shutterstock_granite.jpg");
 }
+
+@media only screen and (min-width: 769px) {
+    
+    .output-area {
+        background-image: url("../../img/shutterstock_marble_min.jpg");
+    }
+  }

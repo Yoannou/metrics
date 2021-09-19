@@ -2,9 +2,9 @@
     position: relative;
     display: grid;
     grid-template-areas:
-    "select"
-    "metric";
-    height: 220px;
+    "select select select metric";
+    align-items: flex-end;
+    height: 140px;
     min-height: 200;
     background-color: #000012;
 }
@@ -14,11 +14,12 @@
   text-align: center;
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 500px) {
 
   .input-area {
+    height: 220px;
     grid-template-areas: 
-    "select select metric"
+    "select select metric";
   }
 }
 
@@ -26,6 +27,6 @@
 
   .input-area {
     grid-template-areas: 
-    "select metric"
+    "select metric";
   }
 }
