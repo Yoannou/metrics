@@ -8,7 +8,7 @@ function Notes({openStatus, notepadChange}) {
     <div className={"notes " + openness}>
       <form className="notes-form">
         <label className="notes-label" htmlFor="notes-field">Cooking Notes:</label>
-        <textarea id="notes-field" name="notes-field" rows="4" cols="50" defaultValue="What's on the menu?">
+        <textarea id="notes-field" name="notes-field" rows="4" cols="50">
         </textarea> 
       </form>
       <div className="notes-tab"  onClick={notepadChange}>

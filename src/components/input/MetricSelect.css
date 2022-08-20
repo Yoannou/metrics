@@ -15,7 +15,7 @@
 }
 
 .metric-label select, metric-label select option {
-  width: 3ch;
+  /*width: 3ch;*/
   font-size: 20px;
   text-align: center;
   font-family: broadacre-regular-0, normalidad-text, sans-serif;

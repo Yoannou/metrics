@@ -31,7 +31,7 @@
 
 .notes-tab {
     position: absolute;
-    background-color: beige;
+    background-color: white;
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -57,10 +57,11 @@
 .notes-tab:hover {
     /*bottom: -32%;*/
     box-shadow: 0px 4px rgba(7, 7, 7, 0.9);
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 1201px) {
-    .notes, .notes-tab {
+    .notes{
         background-image: url("../img/shutterstock_paper_min.jpg");
     }
   }
