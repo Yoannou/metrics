@@ -5,8 +5,8 @@
 }
 
 @media only screen and (min-width: 769px) {
-    
     .output-area {
-        background-image: url("../../img/shutterstock_marble_min.jpg");
+      background: none;
+        /* background-image: url("../../img/shutterstock_marble_min.jpg"); */
     }
   }

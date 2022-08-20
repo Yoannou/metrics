@@ -159,7 +159,6 @@ function View() {
   return (
     <div className="container">
         <Notes openStatus={notepad} notepadChange={handleNotepadChange}/>
-        <div className="top-buffer"></div>
         <InputArea value={value} valueChange={handleValueChange}
           metric={metric} metricChange={handleMetricChange}/>
         <OutputArea currentMetric={metric} conversions={conversions}/>
