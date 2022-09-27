@@ -1,12 +1,11 @@
-.metric-select {
+.system-select {
   position: relative;
-  grid-area: metric;
+  width: 100%;
 }
 
-.metric-label {
+.system-label {
   position: relative;
   bottom: 30px;
-  left: 10px;
 
   /**/
   position: absolute;
@@ -14,7 +13,7 @@
   top: auto;
 }
 
-.metric-label select, metric-label select option {
+.system-label select, system-label select option {
   /*width: 3ch;*/
   font-size: 20px;
   text-align: center;
@@ -22,16 +21,16 @@
 }
 
 .drop-down-option {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 @media only screen and (min-width: 769px) {
 
-  .metric-label {
+  .system-label {
 
   }
 
-  .metric-label select {
-    font-size: 80px;
+  .system-label select {
+    font-size: 20px;
   }  
 }

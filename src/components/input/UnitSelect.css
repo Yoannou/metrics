@@ -1,0 +1,37 @@
+.unit-select {
+  position: relative;
+  grid-area: unit;
+}
+
+.unit-label {
+  position: relative;
+  bottom: 30px;
+  left: 10px;
+
+  /**/
+  position: absolute;
+  bottom: 30px;
+  top: auto;
+}
+
+.unit-label select, unit-label select option {
+  /*width: 3ch;*/
+  font-size: 20px;
+  text-align: center;
+  font-family: broadacre-regular-0, normalidad-text, sans-serif;
+}
+
+.drop-down-option {
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 769px) {
+
+  .unit-label {
+
+  }
+
+  .unit-label select {
+    font-size: 80px;
+  }  
+}
