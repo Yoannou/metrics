@@ -25,6 +25,11 @@
   font-size: 30px;
 }
 
+optgroup {
+  font-size: 20px;
+  background-color: white;
+}
+
 @media only screen and (min-width: 769px) {
 
   .unit-label {
@@ -32,6 +37,6 @@
   }
 
   .unit-label select {
-    font-size: 80px;
+    font-size: 40px;
   }  
 }
