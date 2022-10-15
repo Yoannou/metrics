@@ -3,12 +3,11 @@ import UnitSelect from './UnitSelect'
 import SystemSelect from './SystemSelect'
 import './InputArea.css'
 
-function InputArea({value, valueChange, unit, unitChange, system, systemChange}) {
+function InputArea({value, valueChange, unit, unitChange}) {
   return (
     <div className="input-area">
         <ValueSelect value={value.number} onChange={valueChange}/>
-        <UnitSelect unit={unit} onChange={unitChange} system={system}/>
-        <SystemSelect system={system} onChange={systemChange} />
+        <UnitSelect unit={unit} onChange={unitChange}/>
     </div>
   );
 }

@@ -4,8 +4,8 @@ import './OutputArea.css'
 function OutputArea({currentUnit, conversions}) {
   return (
     <div className="output-area">
-        <ConversionList id="results-main" currentUnit={currentUnit} nodes={conversions} densityRequired="false" />
-        {/* <ConversionList id="results-secondary" densityRequired="true" /> */}
+        <ConversionList id="results-volume" currentUnit={currentUnit} nodes={conversions} densityRequired="false" />
+        <ConversionList id="results-weight" currentUnit={currentUnit} nodes={conversions} densityRequired="true" />
     </div>
   );
 }
