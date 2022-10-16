@@ -14,9 +14,9 @@
   top: auto;
 }
 
+
 .unit-label select, unit-label select option {
-  /*width: 3ch;*/
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   font-family: broadacre-regular-0, normalidad-text, sans-serif;
 }
@@ -32,11 +32,8 @@ optgroup {
 
 @media only screen and (min-width: 769px) {
 
-  .unit-label {
-
-  }
-
   .unit-label select {
     font-size: 40px;
-  }  
+    width: 200px;
+  }
 }

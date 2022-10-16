@@ -11,11 +11,18 @@ function commafy( num ) {
   return str.join('.');
 }
 
-function ConversionNode({node}) {
+function ConversionNode({currentUnit, node}) {
+
+  let bgcolor = node.color;
+
+  if (node.unit == currentUnit) {
+    bgcolor="gold";
+  }
+
   return (
-    <div style={{backgroundColor: node.color}} className="conversion-node">
+    <div style={{backgroundColor: bgcolor}} className="conversion-node">
       <div className="node-text node-value"><h2>{(node.value < 100000000) ? commafy(node.value) : ">100,000,000"} </h2></div>
-      <div className="node-text node-unit"><h2>{node.unit}</h2></div>
+      <div className="node-text node-unit"><h2>{node.name}</h2></div>
     </div>
   );
 }

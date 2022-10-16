@@ -3,6 +3,15 @@ import './UnitSelect.css'
 
 function UnitSelect({unit, onChange, system}) {
 
+  /*
+  <optgroup label="weight">
+    <option className="drop-down-option" value="g">g</option>
+    <option className="drop-down-option" value="kg">kg</option>
+    <option className="drop-down-option" value="oz">oz</option>
+    <option className="drop-down-option" value="lbs">lbs</option>
+  </optgroup>
+  */
+
   return (
     <div className="select unit-select">
       <form className="form unit-form">
@@ -14,16 +23,10 @@ function UnitSelect({unit, onChange, system}) {
               <option className="drop-down-option" value="floz">oz (fluid)</option>
               <option className="drop-down-option" value="tsp">tsp</option>
               <option className="drop-down-option" value="tbsp">tbsp</option>
-              <option className="drop-down-option" value="cup">cup</option>
-              <option className="drop-down-option" value="pint">pint</option>
-              <option className="drop-down-option" value="quart">quart</option>
-              <option className="drop-down-option" value="gallon">gallon</option>
-            </optgroup>
-            <optgroup label="weight">
-              <option className="drop-down-option" value="g">g</option>
-              <option className="drop-down-option" value="kg">kg</option>
-              <option className="drop-down-option" value="oz">oz</option>
-              <option className="drop-down-option" value="lbs">lbs</option>
+              <option className="drop-down-option" value="cups">cups</option>
+              <option className="drop-down-option" value="pt">pint</option>
+              <option className="drop-down-option" value="qt">quart</option>
+              <option className="drop-down-option" value="gal">gallon</option>
             </optgroup>
           </select>
         </label>

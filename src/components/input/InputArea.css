@@ -2,16 +2,15 @@
     position: relative;
     display: grid;
     grid-template-areas:
-    "select select select unit";
+    "select select select unit unit";
     align-items: flex-end;
     height: 140px;
     min-height: 200;
-    background-color: #000012;
-    padding-top: 80px;
+    padding-top: 20px;
 }
 
 .form {
-  height: 100%; 
+  height: 100%;
   text-align: center;
 }
 
@@ -19,7 +18,7 @@
 
   .input-area {
     height: 220px;
-    grid-template-areas: 
+    grid-template-areas:
     "select select unit";
   }
 }
@@ -27,7 +26,7 @@
 @media only screen and (min-width: 1201px) {
 
   .input-area {
-    grid-template-areas: 
+    grid-template-areas:
     "select unit";
   }
 }

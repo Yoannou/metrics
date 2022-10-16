@@ -1,9 +1,9 @@
-.system-select {
+.density-select {
   position: relative;
   width: 100%;
 }
 
-.system-label {
+.density-label {
   position: relative;
   bottom: 30px;
 
@@ -13,7 +13,7 @@
   top: auto;
 }
 
-.system-label select, system-label select option {
+.density-label select, density-label select option {
   /*width: 3ch;*/
   font-size: 20px;
   text-align: center;
@@ -26,11 +26,11 @@
 
 @media only screen and (min-width: 769px) {
 
-  .system-label {
+  .density-label {
 
   }
 
-  .system-label select {
+  .density-label select {
     font-size: 20px;
-  }  
+  }
 }
