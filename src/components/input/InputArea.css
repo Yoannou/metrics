@@ -4,9 +4,8 @@
     grid-template-areas:
     "select select select unit unit";
     align-items: flex-end;
-    height: 140px;
-    min-height: 200;
-    padding-top: 20px;
+    min-height: 140px;
+    padding-right: 10px;
 }
 
 .form {
@@ -17,9 +16,9 @@
 @media only screen and (min-width: 500px) {
 
   .input-area {
-    height: 220px;
     grid-template-areas:
     "select select unit";
+    padding-right: 0px;
   }
 }
 

@@ -3,13 +3,20 @@ import './ValueSelect.css'
 // Can add after type:
 //  pattern="[0-9]*"
 
+/*
+<input inputMode="numeric"
+  type="text" name="value"
+  value={value} onChange={onChange}
+  maxLength="7"/>
+*/
+
 function ValueSelect({value, onChange}) {
   return (
     <div className="select value-select">
       <form className="form value-form">
         <label className="value-label">
-          <input inputMode="numeric" 
-            type="text" name="value"
+          <input inputMode="decimal"
+            type="numeric" name="value"
             value={value} onChange={onChange}
             maxLength="7"
             /*style={{width: value.length + "ch"}}*//>
