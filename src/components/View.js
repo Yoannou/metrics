@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Notes from './Notes'
+import Info from './Info'
 import InputArea from './input/InputArea'
 import OutputArea from './output/OutputArea'
+import Menu from './Menu'
+
 import './View.css'
 
 function View() {
@@ -14,6 +17,17 @@ function View() {
     }
     else {
       setNotepad('open');
+    }
+  }
+
+  // Info for description of units
+  const [info, setInfo] = useState('closed');
+  const handleInfoChange = (event) => {
+    if (info === 'open') {
+      setInfo('closed');
+    }
+    else {
+      setInfo('open');
     }
   }
 
@@ -382,7 +396,9 @@ function View() {
 
   return (
     <div className="container">
-        {/* <Notes openStatus={notepad} notepadChange={handleNotepadChange}/> */}
+        <Notes openStatus={notepad} notepadChange={handleNotepadChange}/>
+        <Info openStatus={info} infoChange={handleInfoChange}/>
+        <Menu notepadChange={handleNotepadChange} infoChange={handleInfoChange}/>
         <InputArea value={value} valueChange={handleValueChange}
           unit={unit} unitChange={handleUnitChange}
           density={density} densityChange={handleDensityChange} />

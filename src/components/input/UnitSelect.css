@@ -19,6 +19,7 @@
   font-size: 16px;
   text-align: center;
   font-family: broadacre-regular-0, normalidad-text, sans-serif;
+  min-height: 52px;
 }
 
 .drop-down-option {
@@ -33,7 +34,7 @@ optgroup {
 @media only screen and (min-width: 769px) {
 
   .unit-label select {
-    font-size: 40px;
+    font-size: 30px;
     width: 200px;
   }
 }

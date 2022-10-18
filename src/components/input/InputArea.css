@@ -4,7 +4,7 @@
     grid-template-areas:
     "select select select unit unit";
     align-items: flex-end;
-    min-height: 140px;
+    min-height: 120px;
     padding-right: 10px;
 }
 

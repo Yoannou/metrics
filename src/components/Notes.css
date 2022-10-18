@@ -3,9 +3,10 @@
     width: 100%;
     transition: transform 0.5s ease-out;
     transform: translateY(-100%);
-    background-color: beige;
-    height: 80vh;
+    background-color:	#9f8170	;
+    height: 600px;
     z-index: 2;
+    border-bottom: 2px dotted brown;
 }
 
 .notes-open {
@@ -20,23 +21,43 @@
 .notes-label {
     display: block;
     padding: 30px;
-    font-size: 40px;
+    font-size: 30px;
+    color: white;
 }
 
 #notes-field {
+  margin-bottom: 20px;
   padding: 20px;
   width: 80%;
   height: 60%;
   font-size: 24px;
 }
 
+.notes-close-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes-close {
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.notes-close:hover {
+  font-size: 44px;
+}
+
+/* Notes tab no longer in use: */
+
 .notes-tab {
     position: absolute;
     background-color: white;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     bottom: -80px;
     width: 300px;
     height: 80px;
@@ -52,23 +73,27 @@
 }
 
 .notes, .notes-tab {
-    box-shadow: 0px 8px rgba(10, 10, 10, 0.5);
+    /*box-shadow: 0px 8px rgba(10, 10, 10, 0.5);*/
 }
 
 .notes-tab:hover {
     /*bottom: -32%;*/
-    box-shadow: 0px 4px rgba(7, 7, 7, 0.8);
     cursor: pointer;
 }
 
+/* QUERIES */
 @media only screen and (min-width: 1201px) {
     .notes{
-        background-image: url("../img/shutterstock_paper_min.jpg");
+        /*background-image: url("../img/shutterstock_paper_min.jpg");*/
     }
   }
 
-  @media only screen and (max-height: 500px) {
+  @media only screen and (max-height: 600px) {
+    .notes-label {
+        font-size: 30px;
+    }
+
     #notes-field {
-      max-height: 100px;
+      max-height: 60px;
     }
   }
